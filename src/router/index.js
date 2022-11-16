@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-const HomeView = () => import('../views/HomeView/index.vue');
-const FeedbacksView = () => import('../views/FeedbacksView/index.vue');
-const CredencialsView = () => import('../views/CredencialsView/index.vue');
+const HomeView = () => import('../views/HomeView.vue');
+const DoisView = () => import('../views/DoisView.vue');
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -13,21 +12,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/feedbacks',
-      name: 'Feedbacks',
-      component: FeedbacksView,
-      meta: {
-        hasAuth: true,
-      },
+      path: '/dois',
+      name: 'Dois',
+      component: DoisView,
     },
-    {
-      path: '/credencials',
-      name: 'Credencials',
-      component: CredencialsView,
-      meta: {
-        hasAuth: true,
-      },
-    },
+
     {
       path: '/:pathMatch(.*)*',
       redirect: { name: 'Home' },
